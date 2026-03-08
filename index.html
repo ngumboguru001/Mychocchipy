@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Women's Day My Love ❤️</title>
+
+
+<style>
+
+/* GENERAL */
+
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg,#ff8ac3,#ff4fa3);
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+h1{
+margin-top:30px;
+font-size:40px;
+}
+
+/* CONTAINER */
+
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+/* PHOTO SLIDESHOW */
+
+.slideshow{
+max-width:400px;
+margin:30px auto;
+position:relative;
+}
+
+.slide{
+width:100%;
+border-radius:15px;
+display:none;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* COUNTDOWN */
+
+.countdown{
+font-size:22px;
+margin-top:20px;
+font-weight:bold;
+}
+
+/* ENVELOPE */
+
+.envelope{
+position:relative;
+width:320px;
+height:200px;
+background:#ff6fb0;
+margin:40px auto;
+border-radius:10px;
+cursor:pointer;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+.flap{
+position:absolute;
+top:0;
+left:0;
+width:0;
+height:0;
+border-left:160px solid transparent;
+border-right:160px solid transparent;
+border-top:100px solid #ff9ed2;
+transform-origin:top;
+transition:0.5s;
+}
+
+.letter{
+position:absolute;
+top:20px;
+left:20px;
+width:280px;
+height:160px;
+background:white;
+border-radius:10px;
+padding:15px;
+box-sizing:border-box;
+color:#d1006f;
+font-size:15px;
+opacity:0;
+transform:translateY(80px);
+transition:0.5s;
+}
+
+.open .flap{
+transform:rotateX(180deg);
+}
+
+.open .letter{
+opacity:1;
+transform:translateY(-40px);
+}
+
+/* FLOATING HEARTS */
+
+.heart{
+position:fixed;
+bottom:-20px;
+font-size:20px;
+animation:floatUp 6s linear infinite;
+}
+
+@keyframes floatUp{
+0%{transform:translateY(0)}
+100%{transform:translateY(-110vh)}
+}
+
+/* ROMANTIC GRID GALLERY */
+
+.love-gallery{
+margin-top:40px;
+overflow:hidden;
+}
+
+.grid-slider{
+display:flex;
+gap:15px;
+width:max-content;
+animation:gridSlide 25s linear infinite;
+}
+
+.grid-slider img{
+width:200px;
+height:200px;
+object-fit:cover;
+border-radius:15px;
+box-shadow:0 8px 25px rgba(0,0,0,0.3);
+transition:0.4s;
+}
+
+.grid-slider img:hover{
+transform:scale(1.1);
+}
+
+@keyframes gridSlide{
+0%{transform:translateX(0)}
+100%{transform:translateX(-50%)}
+}
+
+/* FOOTER */
+
+footer{
+margin-top:40px;
+padding:20px;
+font-size:14px;
+opacity:0.9;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>🌸 Happy Women's Day My Love 🌸</h1>
+
+<div class="container">
+
+<!-- PHOTO SLIDESHOW -->
+
+<div class="slideshow">
+<img src="images/1.jpeg" class="slide">
+<img src="images/2.jpeg" class="slide">
+<img src="images/3.jpeg" class="slide">
+</div>
+<!-- ROMANTIC PHOTO GRID -->
+
+<h2>❤️ Our Beautiful Memories ❤️</h2>
+
+<div class="love-gallery">
+
+<div class="grid-slider">
+
+<img src="images/4.jpeg">
+<img src="images/5.jpeg">
+<img src="images/6.jpeg">
+<img src="images/7.jpeg">
+<img src="images/8.jpeg">
+<img src="images/9.jpeg">
+
+<!-- duplicate for smooth loop -->
+
+<img src="images/10.jpeg">
+<img src="images/11.jpeg">
+<img src="images/12.jpeg">
+<img src="images/13.jpeg">
+<img src="images/14.jpeg">
+<img src="images/15.jpeg">
+
+</div>
+
+</div>
+
+<!-- COUNTDOWN -->
+
+<div class="countdown" id="countdown"></div>
+
+<!-- ENVELOPE LETTER -->
+
+<h2>💌 Click the Envelope</h2>
+
+<div class="envelope" id="envelope">
+
+<div class="flap"></div>
+
+<div class="letter">
+
+My beautiful wife,
+
+Every day with you is a blessing.  
+Your smile brightens my world and your love fills my heart.
+
+Thank you for being the amazing woman that you are.
+
+Happy Women's Day my Queen ❤️
+
+Forever yours.
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+Made with love ❤️
+</footer>
+
+<!-- MUSIC -->
+
+<audio autoplay loop>
+<source src="love.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+/* SLIDESHOW */
+
+let slides=document.querySelectorAll(".slide")
+let index=0
+
+function showSlide(){
+
+slides.forEach(s=>s.style.display="none")
+
+slides[index].style.display="block"
+
+index++
+
+if(index>=slides.length){
+index=0
+}
+
+}
+
+setInterval(showSlide,3000)
+showSlide()
+
+/* LOVE COUNTDOWN */
+
+let startDate=new Date("2023-09-17")
+
+function updateCountdown(){
+
+let now=new Date()
+let diff=now-startDate
+
+let days=Math.floor(diff/(1000*60*60*24))
+
+document.getElementById("countdown").innerHTML=
+"I have loved you for "+days+" days ❤️"
+
+}
+
+setInterval(updateCountdown,1000)
+
+/* OPEN LETTER */
+
+document.getElementById("envelope").onclick=function(){
+this.classList.toggle("open")
+}
+
+/* FLOATING HEARTS */
+
+function createHeart(){
+
+let heart=document.createElement("div")
+
+heart.className="heart"
+
+heart.innerHTML="💖"
+
+heart.style.left=Math.random()*100+"vw"
+
+document.body.appendChild(heart)
+
+setTimeout(()=>{
+heart.remove()
+},6000)
+
+}
+
+setInterval(createHeart,500)
+
+</script>
+
+</body>
+</html>
+
